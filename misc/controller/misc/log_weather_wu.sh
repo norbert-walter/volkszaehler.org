@@ -46,7 +46,7 @@ UUID_uvindex='12345678-1234-1234-1234-12345678901h'
 #### Dont edit the following lines! ####
 
 ## WeatherUnderground url
-## http://api.wunderground.com/api/1b0d33c840c54ac4/conditions/q/pws:ISACHSEN356.json
+## http://api.wunderground.com/api/1234567890123456/conditions/q/pws:ISACHSEN356.json
 WU="http://api.wunderground.com/api/$APPID/conditions/q/pws:$PWS.json"
  
 ## paths to binaries - you should not need to change these
@@ -79,8 +79,6 @@ timeA=`date +%H:%M:%S`
 timestamp=$last_update"000"
 
 ### Debug
- echo "Friendly weather service from WeatherUnderground (C)"
- echo "www.wunderground.com"
  echo -e "LocalTime: "`date`
  echo -e "UTC Time: "`date -u`
  echo "PWS: "$PWS
@@ -111,6 +109,7 @@ if [ -n "$APPID" ]; then
   if [ -n "$UUID_temperature" ]; then
   echo "Save Temp with UUID: "$UUID_temperature" in database"
   $CURL --data "" "$URL/data/$UUID_temperature.json?$timestring""value=$temperature" &>/dev/null
+#  echo "$URL/data/$UUID_temperature.json?$timestring""value=$temperature"
   fi
   if [ -n "$UUID_pressure" ]; then
   echo "Save Pressure with UUID: "$UUID_pressure" in database"
